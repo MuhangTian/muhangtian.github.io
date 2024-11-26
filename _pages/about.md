@@ -1,25 +1,24 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: 
+  # <a href='https://cs.nyu.edu/home/index.html'>New York University, Courant Institute of Mathematical Sciences</a>.
 
 profile:
   align: right
-  image: prof_pic.jpg
-  image_circular: false # crops the image to make it circular
+  image: duke_me_photo_head.jpg
+  image_circular: true # crops the image to make it circular
   more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
 
 news: true # includes a list of news items
-selected_papers: true # includes a list of papers marked as "selected={true}"
+selected_papers: false # includes a list of papers marked as "selected={true}"
+publications: true
 social: true # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I am a first-year Computer Science PhD student at [New York University, Courant Institute of Mathematical Sciences](https://cs.nyu.edu/home/index.html). I am broadly interested in applied machine learning research and solving problems with real-world implications. 
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+My undergraduate study was completed at [Duke University](https://duke.edu/) with [Highest Distiction in Computer Science](https://cs.duke.edu/undergrad/awards) and [Alex Vasilos Memorial Award](https://cs.duke.edu/undergrad/awards). At Duke, I worked with [Prof. Cynthia Rudin](https://users.cs.duke.edu/~cynthia/), [Prof. Brandon Fain](https://sites.duke.edu/btfain/), and [Prof. Anru Zhang](https://anruzhang.github.io/) on interpretable machine learning, reinforcement learning, and diffusion models. As a side note, my headshot was taken near Duke Chapel :)
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+My hobbies include playing Bayan accordion ([concert video](https://v.qq.com/x/page/t0949fd6s8c.html)) and running.
