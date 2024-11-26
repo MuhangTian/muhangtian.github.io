@@ -5,6 +5,7 @@
 @use "sass:color";
 
 $blue-color: #0846cb;
+$dark-mode-color: #439cea;
 
 :root {
   --global-bg-color: #{$white-color};
@@ -81,8 +82,8 @@ html[data-theme="dark"] {
   --global-code-bg-color: #{$code-bg-color-dark};
   --global-text-color: #{$grey-color-light};
   --global-text-color-light: #{$grey-color};
-  --global-theme-color: #{$cyan-color};
-  --global-hover-color: #{$cyan-color};
+  --global-theme-color: #{$dark-mode-color};
+  --global-hover-color: #{$dark-mode-color};
   --global-hover-text-color: #{$white-color};
   --global-footer-bg-color: #{$grey-color-light};
   --global-footer-text-color: #{$grey-color-dark};
