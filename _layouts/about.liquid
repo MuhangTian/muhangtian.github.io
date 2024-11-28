@@ -51,9 +51,9 @@ layout: default
 
     <!-- News -->
     {% if page.news and site.announcements.enabled %}
-      <h2>
+      <h3>
         <span style="color: inherit">News</span>
-      </h2>
+      </h3>
       {% include news.liquid limit=true %}
     {% endif %}
 
@@ -67,9 +67,9 @@ layout: default
 
     <!-- Selected papers (Publications) -->
     {% if page.selected_papers %}
-      <h2>
+      <h3>
         <span style="color: inherit">Publications</span>
-      </h2>
+      </h3>
       &#x2A denotes equal contribution
       {% include selected_papers.liquid %}
     {% endif %}
@@ -79,9 +79,9 @@ layout: default
     {% endif %}
 
     <!-- Services -->
-    <h2>
+    <h3>
         <span style="color: inherit">Services</span>
-    </h2>
+    </h3>
     <span style="font-weight: 500">Reviewer</span>: NeurIPS (2023), ICLR (2024), AAAI (2025), IEEE ICHI (2023).
   </article>
 </div>
