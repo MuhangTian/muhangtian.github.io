@@ -21,4 +21,4 @@ I am a first-year Computer Science PhD student at [New York University, Courant 
 
 My undergraduate study was completed at [Duke University](https://duke.edu/) with [Highest Distiction in Computer Science](https://cs.duke.edu/undergrad/awards) and [Alex Vasilos Memorial Award](https://cs.duke.edu/undergrad/awards). At Duke, I worked with [Prof. Cynthia Rudin](https://users.cs.duke.edu/~cynthia/), [Prof. Brandon Fain](https://sites.duke.edu/btfain/), and [Prof. Anru Zhang](https://anruzhang.github.io/) on interpretable machine learning, reinforcement learning, and diffusion models. As a side note, my headshot was taken near Duke Chapel :)
 
-My hobbies include playing Bayan accordion ([concert video](https://v.qq.com/x/page/t0949fd6s8c.html)) and running.
+My hobbies include playing Bayan ([concert video](https://v.qq.com/x/page/t0949fd6s8c.html)), running, and road trip.
