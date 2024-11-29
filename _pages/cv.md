@@ -16,6 +16,6 @@ nav: true
   <title>CV</title>
 </head>
 <body style="margin: 0; padding: 0;">
-  <embed src="/assets/pdf/MuhangTian_CV_2024-11-29.pdf" type="application/pdf" width="100%" height="100%">
+  <embed src="/assets/pdf/MuhangTian_CV_2024-11-30.pdf" type="application/pdf" width="100%" height="100%">
 </body>
 </html>
