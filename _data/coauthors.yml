@@ -1,34 +1,27 @@
-"adams":
-  - firstname: ["Edwin", "E.", "E. P.", "Edwin Plimpton"]
-    url: https://en.wikipedia.org/wiki/Edwin_Plimpton_Adams
+"semenova":
+  - firstname: ["Lesia"]
+    url: https://lesiasemenova.github.io/
 
-"podolsky":
-  - firstname: ["Boris", "B.", "B. Y.", "Boris Yakovlevich"]
-    url: https://en.wikipedia.org/wiki/Boris_Podolsky
+"liu":
+  - firstname: ["Jiachang"]
+    url: https://jiachangliu.github.io/
 
-"rosen":
-  - firstname: ["Nathan", "N."]
-    url: https://en.wikipedia.org/wiki/Nathan_Rosen
+"zhu":
+  - firstname: ["Chloe Qinyu", "Chloe"]
+    url: https://www.linkedin.com/in/chloe-qinyu-zhu/
 
-"bach":
-  - firstname: ["Johann Sebastian", "J. S."]
-    url: https://en.wikipedia.org/wiki/Johann_Sebastian_Bach
+"rudin":
+  - firstname: ["Cynthia"]
+    url: https://users.cs.duke.edu/~cynthia/
 
-  - firstname: ["Carl Philipp Emanuel", "C. P. E."]
-    url: https://en.wikipedia.org/wiki/Carl_Philipp_Emanuel_Bach
+"peng":
+  - firstname: ["Nianli"]
+    url: https://www.linkedin.com/in/nianli-peng-b493541b4/
 
-"przibram":
-  - firstname: ["Karl"]
-    url: https://link.springer.com/article/10.1007/s00016-019-00242-z
+"fain":
+  - firstname: ["Brandon"]
+    url: https://scholar.google.com/citations?user=ldd8O18AAAAJ&hl=en
 
-"schrodinger":
-  - firstname: ["Erwin"]
-    url: https://en.wikipedia.org/wiki/Erwin_Schr%C3%B6dinger
-
-"lorentz":
-  - firstname: ["Hendrik Antoon"]
-    url: https://en.wikipedia.org/wiki/Hendrik_Lorentz
-
-"planck":
-  - firstname: ["Max"]
-    url: https://en.wikipedia.org/wiki/Max_Planck
+"zhang":
+  - firstname: ["Anru", "Anru R"]
+    url: https://anruzhang.github.io/
