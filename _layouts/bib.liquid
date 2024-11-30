@@ -190,7 +190,7 @@
         </a>
       {% endif %}
       {% if entry.abstract %}
-        <a class="abstract btn btn-sm z-depth-0" role="button" style="padding: 0.15rem 0.5rem;">Abstract</a>
+        <a class="abstract btn btn-sm z-depth-0" role="button" style="padding: 0.15rem 0.5rem; background-color: #e5dadb;">Abstract</a>
       {% endif %}
       {% if entry.doi %}
         <a href="https://doi.org/{{ entry.doi }}" class="btn btn-sm z-depth-0" role="button" style="padding: 0.15rem 0.5rem;">DOI</a>
@@ -210,9 +210,9 @@
       {% endif %}
       {% if entry.pdf %}
         {% if entry.pdf contains '://' %}
-          <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0" role="button" style="padding: 0.15rem 0.5rem;">PDF</a>
+          <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0" role="button" style="padding: 0.15rem 0.5rem; background-color:#f3ab6f;">PDF</a>
         {% else %}
-          <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button" style="padding: 0.15rem 0.5rem;">PDF</a>
+          <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button" style="padding: 0.15rem 0.5rem; background-color:#f3ab6f;">PDF</a>
         {% endif %}
       {% endif %}
       {% if entry.supp %}
@@ -231,7 +231,7 @@
         <a href="{{ entry.blog }}" class="btn btn-sm z-depth-0" role="button" style="padding: 0.15rem 0.5rem;">Blog</a>
       {% endif %}
       {% if entry.code %}
-        <a href="{{ entry.code }}" class="btn btn-sm z-depth-0" role="button" style="padding: 0.15rem 0.5rem;">Code</a>
+        <a href="{{ entry.code }}" class="btn btn-sm z-depth-0" role="button" style="padding: 0.15rem 0.5rem; background-color:#c6dcfb;">Code</a>
       {% endif %}
       {% if entry.poster %}
         {% if entry.poster contains '://' %}
@@ -242,9 +242,9 @@
       {% endif %}
       {% if entry.slides %}
         {% if entry.slides contains '://' %}
-          <a href="{{ entry.slides }}" class="btn btn-sm z-depth-0" role="button" style="padding: 0.15rem 0.5rem;">Slides</a>
+          <a href="{{ entry.slides }}" class="btn btn-sm z-depth-0" role="button" style="padding: 0.15rem 0.5rem; background-color:#f8eed1;">Slides</a>
         {% else %}
-          <a href="{{ entry.slides | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button" style="padding: 0.15rem 0.5rem;">Slides</a>
+          <a href="{{ entry.slides | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button" style="padding: 0.15rem 0.5rem; background-color:#f8eed1;">Slides</a>
         {% endif %}
       {% endif %}
       {% if entry.website %}
