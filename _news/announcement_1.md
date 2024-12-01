@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Graduated from [Duke University](https://duke.edu/). What an amazing four years!
+Graduated from [Duke University](https://duke.edu/).
