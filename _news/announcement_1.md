@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Graduated from [Duke University](https://duke.edu/).
+Graduated from [Duke University](https://duke.edu/). Thank you Duke.
