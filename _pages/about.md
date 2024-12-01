@@ -3,7 +3,7 @@ layout: about
 title: About
 permalink: /
 subtitle: 
-  <a href='https://cs.nyu.edu/home/index.html'>New York University, Courant Institute of Mathematical Sciences</a>. 60 Fifth Ave, New York, NY.
+  <a href='https://cs.nyu.edu/home/index.html'>New York University, Courant Institute (NYU Courant)</a>. 60 Fifth Ave, New York, NY 10011.
 
 profile:
   align: right
