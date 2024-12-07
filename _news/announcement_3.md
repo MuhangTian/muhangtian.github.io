@@ -1,8 +1,7 @@
 ---
 layout: post
-date: 2016-01-15 07:59:00-0400
+date: 2024-8-12
 inline: true
 related_posts: false
 ---
-
-A simple inline announcement with Markdown emoji! :sparkles: :smile:
+Our paper *[Reliable Generation of Privacy-preserving Synthetic Electronic Health Record Time Series via Diffusion Models](http://www.arxiv.org/pdf/2310.15290)* was accepted by [JAMIA](https://academic.oup.com/).

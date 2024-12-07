@@ -5,8 +5,8 @@ layout: default
   <header class="post-header">
     <h1 class="post-title">
       {% if site.title == 'blank' %}
-        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
-        {{ site.last_name }}
+        <span style="font-family: serif; font-weight: 600;">{{ site.first_name }}</span> {{ site.middle_name }}
+        <span style="font-family: serif; font-weight: 600;">{{ site.last_name }}</span>
       {% else %}
         {{ site.title }}
       {% endif %}
@@ -35,6 +35,15 @@ layout: default
         {% if page.profile.more_info %}
           <div class="more-info">{{ page.profile.more_info }}</div>
         {% endif %}
+
+        <!-- Social -->
+        {% if page.social %}
+          <div class="social">
+            <div class="contact-icons">{% include social.liquid %}</div>
+
+            <div class="contact-note">{{ site.contact_note }}</div>
+          </div>
+        {% endif %}
       </div>
     {% endif %}
 
@@ -42,39 +51,39 @@ layout: default
 
     <!-- News -->
     {% if page.news and site.announcements.enabled %}
-      <h2>
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
-      </h2>
+      <h3>
+        <span style="color: inherit">News</span>
+      </h3>
       {% include news.liquid limit=true %}
     {% endif %}
 
     <!-- Latest posts -->
     {% if site.latest_posts.enabled %}
       <h2>
-        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
+        <a style="color: inherit">latest posts</a>
       </h2>
       {% include latest_posts.liquid %}
     {% endif %}
 
-    <!-- Selected papers -->
+    <!-- Selected papers (Publications) -->
     {% if page.selected_papers %}
-      <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
-      </h2>
-      {% include selected_papers.liquid %}
-    {% endif %}
-
-    <!-- Social -->
-    {% if page.social %}
-      <div class="social">
-        <div class="contact-icons">{% include social.liquid %}</div>
-
-        <div class="contact-note">{{ site.contact_note }}</div>
-      </div>
+      <h3>
+        <span style="color: inherit">Publications</span>
+      </h3>
+      &#x2A denotes equal contribution
+      {% include all_papers.liquid %}
     {% endif %}
 
     {% if site.newsletter.enabled and site.footer_fixed %}
       {% include scripts/newsletter.liquid center=true %}
     {% endif %}
+
+    <!-- Services -->
+    <h3>
+        <span style="color: inherit">Academic Services</span>
+    </h3>
+    <span style="font-weight: 500">Reviewer</span>: NeurIPS (2023), ICLR (2024), AAAI (2025), IEEE ICHI (2023).
+    <br>
+    <span style="font-weight: 500">Teaching Assistant</span>: Design and Analysis of Algorithms (Duke), Econometrics (Duke), Microeconomics (Duke).
   </article>
 </div>
