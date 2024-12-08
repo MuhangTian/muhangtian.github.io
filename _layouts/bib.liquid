@@ -196,7 +196,7 @@
         <a href="https://doi.org/{{ entry.doi }}" class="btn btn-sm z-depth-0" role="button" style="padding: 0.15rem 0.5rem;">DOI</a>
       {% endif %}
       {% if entry.arxiv %}
-        <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button" style="padding: 0.15rem 0.5rem;">arXiv</a>
+        <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button" style="padding: 0.15rem 0.5rem; background-color:#fabaa2; border-radius: 8px;">arXiv</a>
       {% endif %}
       {% if entry.html %}
         {% if entry.html contains '://' %}
@@ -207,9 +207,9 @@
       {% endif %}
       {% if entry.pdf %}
         {% if entry.pdf contains '://' %}
-          <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0" role="button" style="padding: 0.15rem 0.5rem; background-color:#fdc08d; border-radius: 8px;">PDF</a>
+          <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0" role="button" style="padding: 0.15rem 0.5rem; background-color:#fdc08d; border-radius: 8px;">Paper</a>
         {% else %}
-          <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button" style="padding: 0.15rem 0.5rem; background-color:#fdc08d; border-radius: 8px;">PDF</a>
+          <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button" style="padding: 0.15rem 0.5rem; background-color:#fdc08d; border-radius: 8px;">Paper</a>
         {% endif %}
       {% endif %}
       {% if entry.supp %}
