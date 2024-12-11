@@ -23,4 +23,4 @@ I am a first-year computer science PhD student at [NYU Courant](https://cs.nyu.e
 
 My undergraduate study was completed at [Duke University](https://duke.edu/) with [Alex Vasilos Memorial Award](https://cs.duke.edu/undergrad/awards) and [Graduation with Highest Distinction](https://cs.duke.edu/undergrad/awards). I was very fortunate to work with [Cynthia Rudin](https://users.cs.duke.edu/~cynthia/), [Brandon Fain](https://sites.duke.edu/btfain/), and [Anru Zhang](https://anruzhang.github.io/) on interpretable machine learning, reinforcement learning, and diffusion models. Before pursuing machine learning, I was an economics student interested in finance, an accordionist, and a marathon runner.
 
-My hobbies include playing Bayan accordion ([recital video](https://v.qq.com/x/page/t0949fd6s8c.html)), running, and road trip.
+My hobbies include playing Bayan accordion, running, and road trip.
