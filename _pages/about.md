@@ -10,8 +10,8 @@ profile:
   image: duke_me_photo.png
   image_circular: false # crops the image to make it circular
   affiliation: 
-    60 Fifth Ave, New York, NY 10011 <br>
-    <a href=https://cs.nyu.edu/home/index.html>New York University, Courant Institute (NYU Courant)</a>
+    Courant Institute of Mathematical Sciences <br>
+    New York University <br>
 
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
