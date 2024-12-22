@@ -3,15 +3,16 @@ layout: about
 title: About
 permalink: /
 subtitle: 
-  Computer Science PhD Student
 
 profile:
   align: left
-  image: duke_me_photo.png
+  image: duke_me_photo_high_res.png
   image_circular: false # crops the image to make it circular
   affiliation: 
+    Computer Science PhD Student <br>
     Courant Institute of Mathematical Sciences <br>
     New York University <br>
+    60 5th Avenue, New York, NY 10011 <br>
 
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
