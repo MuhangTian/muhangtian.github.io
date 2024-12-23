@@ -6,7 +6,7 @@ subtitle:
 
 profile:
   align: left
-  image: duke_me_photo_high_res.png
+  image: duke_me_photo_high_res.jpg
   image_circular: false # crops the image to make it circular
   affiliation: 
     Computer Science PhD Student <br>
