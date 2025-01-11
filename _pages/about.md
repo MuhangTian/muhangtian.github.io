@@ -6,13 +6,13 @@ subtitle:
 
 profile:
   align: left
-  image: duke_me_photo_high_res.jpg
+  image: my_photo.jpg
   image_circular: false # crops the image to make it circular
   affiliation: 
     Computer Science PhD Student <br>
     Courant Institute of Mathematical Sciences <br>
     New York University <br>
-    60 5th Avenue, New York, NY 10011 <br>
+    60 Fifth Avenue, New York, NY 10011 <br>
 
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
