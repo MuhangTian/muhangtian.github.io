@@ -62,26 +62,18 @@ layout: default
     {% endif %}
 
     <!-- Selected papers (Publications) -->
-    {% if page.selected_papers %}
-      <h3>
-        <span style="color: inherit">Publications</span>
-      </h3>
-      &#x2A denotes equal contribution
-      {% include all_papers.liquid %}
-    {% endif %}
+    <div style="margin-bottom: -15px">
+      {% if page.selected_papers %}
+        <h3>
+          <span style="color: inherit">Publications</span>
+        </h3>
+        &#x2A denotes equal contribution
+        {% include all_papers.liquid %}
+      {% endif %}
 
-    {% if site.newsletter.enabled and site.footer_fixed %}
-      {% include scripts/newsletter.liquid center=true %}
-    {% endif %}
-
-    <!-- Services -->
-    <div style="margin-bottom: -25px">
-      <h3>
-          <span style="color: inherit">Academic Services</span>
-      </h3>
-      <span style="font-weight: 400">Reviewer</span>: NeurIPS (2023), ICLR (2024), AAAI (2025), IEEE ICHI (2023).
-      <br>
-      <span style="font-weight: 400">Teaching Assistant</span>: Design and Analysis of Algorithms (Duke), Econometrics (Duke), Microeconomics (Duke).
+      {% if site.newsletter.enabled and site.footer_fixed %}
+        {% include scripts/newsletter.liquid center=true %}
+      {% endif %}
     </div>
   </article>
 </div>
