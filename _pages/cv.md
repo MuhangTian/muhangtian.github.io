@@ -16,6 +16,6 @@ nav: true
   <title>CV</title>
 </head>
 <body style="margin: 0; padding: 0;">
-  <embed src="/assets/pdf/cv.pdf" type="application/pdf" width="100%" height="100%">
+  <embed src="/assets/pdf/muhang-tian_cv.pdf" type="application/pdf" width="100%" height="100%">
 </body>
 </html>
