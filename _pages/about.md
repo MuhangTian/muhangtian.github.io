@@ -12,7 +12,7 @@ profile:
     Computer Science PhD Student <br>
     Courant Institute of Mathematical Sciences <br>
     New York University <br>
-    60 Fifth Ave, Rm 450, New York, NY 10011 <br>
+    60 Fifth Avenue, 450, New York, NY 10011 <br>
 
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
