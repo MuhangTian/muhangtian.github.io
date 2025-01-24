@@ -20,7 +20,7 @@ publications: true
 social: true # includes social icons at the bottom of the page
 ---
 
-I am a first-year computer science PhD student at [NYU Courant](https://cs.nyu.edu/home/index.html), advised by [Sumit Chopra](https://scholar.google.com/citations?user=ETU-ePAAAAAJ&hl=en) and [Rajesh Ranganath](https://scholar.google.com/citations?hl=en&user=kddKBCsAAAAJ&view_op=list_works&sortby=pubdate) in the [CILVR Lab](https://wp.nyu.edu/cilvr/). I am broadly interested in machine learning research with practical implications.
+I am a first-year computer science PhD student at [NYU Courant](https://cs.nyu.edu/home/index.html), advised by [Sumit Chopra](https://scholar.google.com/citations?user=ETU-ePAAAAAJ&hl=en), [Rajesh Ranganath](https://scholar.google.com/citations?hl=en&user=kddKBCsAAAAJ&view_op=list_works&sortby=pubdate), and [Lakshmi Subramanian](https://cs.nyu.edu/~lakshmi/Lakshmi/Home.html) in the [CILVR Lab](https://wp.nyu.edu/cilvr/). I am broadly interested in machine learning research with practical implications.
 
 I obtained my BS in Computer Science with a double minor in Mathematics and Economics at [Duke University](https://duke.edu/), where I received [Graduation with Highest Distinction](https://cs.duke.edu/undergrad/awards) and [Alex Vasilos Memorial Award](https://today.duke.edu/2024/05/honors-and-laurels-earned-class-2024). I was very fortunate to work with [Cynthia Rudin](https://users.cs.duke.edu/~cynthia/), [Brandon Fain](https://sites.duke.edu/btfain/), and [Anru Zhang](https://anruzhang.github.io/) on reinforcement learning, generative models, and interpretability. Before transitioning to machine learning, I was an economics student interested in finance, an accordionist, and a marathon runner.
 
