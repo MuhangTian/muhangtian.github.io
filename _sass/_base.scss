@@ -4,6 +4,8 @@
 
 // Typography
 
+$custom-font-size: 1.1rem;
+
 p,
 h1,
 h2,
@@ -19,6 +21,12 @@ strong {
   color: var(--global-text-color);
 }
 
+body {
+  font-family: Garamond;
+  font-weight: 300;
+  font-size: $custom-font-size;
+}
+
 hr {
   border-top: 1px solid var(--global-divider-color);
 }
@@ -26,7 +34,7 @@ hr {
 table {
   td,
   th {
-    font-size: 1rem;
+    font-size: $custom-font-size;
     padding: 1px 1rem 1px 0;
   }
 
@@ -721,7 +729,7 @@ footer.sticky-bottom {
       }
 
       .title {
-        font-weight: bolder;
+        font-weight: bold;
       }
 
       .author {
