@@ -204,13 +204,13 @@
       {% endif %}
       {% if entry.pdf %}
         {% if entry.pdf contains '://' %}
-          <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0" role="button" style="padding: 0.09rem 0.5rem; border-radius: 8px; color: #035d58; border: 1pt, solid,#035d58; font-size: .7rem;">PDF</a>
+          <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0" role="button" style="padding: 0.09rem 0.5rem; border-radius: 8px; color: #064f93; border: 1pt, solid,#064f93; font-size: .7rem;">PDF</a>
         {% else %}
-          <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button" style="padding: 0.09rem 0.5rem; border-radius: 8px; color: #522703; border: 1pt, solid,#522703; font-size: .7rem;">PDF</a>
+          <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button" style="padding: 0.09rem 0.5rem; border-radius: 8px; color: #064f93; border: 1pt, solid,#064f93; font-size: .7rem;">PDF</a>
         {% endif %}
       {% endif %}
       {% if entry.arxiv %}
-        <a href="{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button" style="padding: 0.09rem 0.5rem; border-radius: 8px; color: #800707; border: 1pt, solid,#800707; font-size: .7rem;">arXiv</a>
+        <a href="{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button" style="padding: 0.09rem 0.5rem; border-radius: 8px; color: #064f93; border: 1pt, solid,#064f93; font-size: .7rem;">arXiv</a>
       {% endif %}
       {% if entry.supp %}
         {% if entry.supp contains '://' %}
@@ -228,7 +228,7 @@
         <a href="{{ entry.blog }}" class="btn btn-sm z-depth-0" role="button" style="padding: 0.15rem 0.5rem;">Blog</a>
       {% endif %}
       {% if entry.code %}
-        <a href="{{ entry.code }}" class="btn btn-sm z-depth-0" role="button" style="padding: 0.09rem 0.5rem; border-radius: 8px; color: #34077d; border: 1pt, solid,#34077d; font-size: .7rem;">Code</a>
+        <a href="{{ entry.code }}" class="btn btn-sm z-depth-0" role="button" style="padding: 0.09rem 0.5rem; border-radius: 8px; color: #064f93; border: 1pt, solid,#064f93; font-size: .7rem;">Code</a>
       {% endif %}
       {% if entry.poster %}
         {% if entry.poster contains '://' %}
