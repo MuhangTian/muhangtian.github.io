@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://muhangtian.github.io/sitemap.xml
+Sitemap: https://muhang-tian.com/sitemap.xml
