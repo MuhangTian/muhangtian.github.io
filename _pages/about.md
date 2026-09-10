@@ -20,7 +20,7 @@ publications: true
 social: true # includes social icons at the bottom of the page
 ---
 
-I am a first-year computer science PhD student at [NYU Courant](https://cs.nyu.edu/home/index.html) and [CILVR group](https://wp.nyu.edu/cilvr/), advised by [Sumit Chopra](https://www.spchopra.net/#bio) and [Rajesh Ranganath](https://cims.nyu.edu/~rajeshr/). I am broadly interested in core machine learning and its application in healthcare. I have previously worked on diffusion models, reinforcement learning, and interpretability.
+I am a second-year computer science PhD student at [NYU Courant](https://cs.nyu.edu/home/index.html) and [CILVR group](https://wp.nyu.edu/cilvr/), advised by [Sherry Yang](https://sherryy.github.io/). I am currently interested in machine learning engineering agents and recursive self-improvement loops.
 
 I obtained my BS in Computer Science with a double minor in Mathematics and Economics at [Duke University](https://duke.edu/), where I received [Graduation with Highest Distinction](https://cs.duke.edu/undergrad/awards) and [Alex Vasilos Memorial Award](https://today.duke.edu/2024/05/honors-and-laurels-earned-class-2024). I was very fortunate to work with [Cynthia Rudin](https://users.cs.duke.edu/~cynthia/), [Brandon Fain](https://sites.duke.edu/btfain/), and [Anru Zhang](https://anruzhang.github.io/).
 

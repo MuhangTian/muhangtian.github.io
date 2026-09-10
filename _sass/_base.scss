@@ -27,8 +27,12 @@ strong {
 }
 
 body {
-  font-family: Garamond;
-  font-weight: 300;
+  // "Garamond" alone resolved to the browser default serif on any machine
+  // without it installed (i.e. most macOS). EB Garamond is loaded via
+  // google_fonts in _config.yml; the rest is a real fallback chain.
+  font-family: "EB Garamond", Garamond, "Times New Roman", serif;
+  // EB Garamond ships no 300; 400 is its regular.
+  font-weight: 400;
   font-size: $custom-font-size;
 }
 
