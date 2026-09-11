@@ -4,9 +4,13 @@
 
 @use "sass:color";
 
-$global-word-color: #0b5c8a;
-$dark-mode-color: #4fa8d3;
-$bg-color: #e9f1e3;
+// Site-wide accent (links, nav hover, tag pills, button fills).
+// Warm brick rather than a pure crimson: against the sage background a
+// fully saturated red reads as festive, and this also has to carry white
+// text as a solid fill.
+$global-word-color: #a63b2e;
+$dark-mode-color: #e98a76;
+$bg-color: #e2eecb;
 $text-color-sage: #1a2620;
 $text-color-sage-light: #5f6b62;
 
@@ -24,7 +28,8 @@ $text-color-sage-light: #5f6b62;
   --global-distill-app-color: #{$grey-color};
   --global-divider-color: rgba(26, 38, 32, 0.13);
   --global-card-bg-color: #{$white-color};
-  --global-highlight-color: #{$red-color-dark};
+  // Unified with the accent: two unrelated reds on one page read as a mistake.
+  --global-highlight-color: #{$global-word-color};
   --global-back-to-top-bg-color: rgba(
     #{color.channel($black-color, "red", $space: rgb)},
     #{color.channel($black-color, "green", $space: rgb)},

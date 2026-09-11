@@ -770,16 +770,19 @@ footer.sticky-bottom {
 
       .links {
         a.btn {
-          color: var(--global-text-color);
-          border: 1px solid var(--global-text-color);
+          color: var(--global-theme-color);
+          border: 1px solid var(--global-theme-color);
+          border-radius: 8px;
           padding-left: 1rem;
           padding-right: 1rem;
           padding-top: 0.25rem;
           padding-bottom: 0.25rem;
           margin-left: 0;
 
+          // Outline by default, solid on hover.
           &:hover {
-            color: var(--global-theme-color);
+            color: var(--global-hover-text-color);
+            background-color: var(--global-theme-color);
             border-color: var(--global-theme-color);
           }
         }
