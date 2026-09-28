@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reward-rate Policy Gradient for Efficient Machine Learning Engineering Agents</title>
+  <meta name="description" content="Reward-rate Policy Gradient (RPG) optimizes the reward rate, the long-term reward per unit of time, for agentic RL tasks such as machine learning engineering agents, where actions take variable time.">
+  <meta property="og:title" content="Reward-rate Policy Gradient for Efficient Machine Learning Engineering Agents">
+  <meta property="og:description" content="Optimizing reward per unit of time for agentic RL where actions take variable time.">
+  <meta property="og:image" content="https://muhang-tian.com/reward-rate/static/images/overview.png">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌳</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Castoro&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [["$", "$"], ["\\(", "\\)"]], macros: { gB: "\\mathcal{B}", E: "\\mathbb{E}" } },
+      options: { skipHtmlTags: ["script", "noscript", "style", "textarea", "pre"] }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+
+<!--
+  ===================== LINKS: fill these in when ready =====================
+  Leave a value empty ("") and its button still shows, greyed out, labelled
+  "coming soon". Paste a URL and the button becomes a normal link.
+-->
+<script>
+  const PAPER_LINKS = {
+    preprint: "",   // e.g. "https://arxiv.org/abs/XXXX.XXXXX"
+    code: ""        // e.g. "https://github.com/MuhangTian/..."
+  };
+</script>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop has-text-centered">
+      <h1 class="title is-1 publication-title">Reward-rate Policy Gradient for Efficient Machine Learning Engineering Agents</h1>
+      <div class="publication-authors">
+        <span class="author-block"><a href="https://muhang-tian.com/">Muhang Tian</a>,</span>
+        <span class="author-block">Sherry Yang</span>
+      </div>
+      <div class="affiliation">New York University</div>
+
+      <div class="publication-links">
+        <span class="link-block">
+          <a data-link="preprint" class="button is-dark is-rounded external-link" target="_blank" rel="noopener">
+            <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Preprint</span>
+          </a>
+        </span>
+        <span class="link-block">
+          <a data-link="code" class="button is-dark is-rounded external-link" target="_blank" rel="noopener">
+            <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
+          </a>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teaser -->
+<section class="section pt-0">
+  <div class="container is-max-desktop">
+    <figure class="teaser">
+      <img src="static/images/overview.png" alt="Overview of Reward-rate Policy Gradient: the policy proposes scripts, the environment returns reward and elapsed time, a buffer of past samples feeds a greedy reward-rate estimator, and PPO is trained on the relative reward.">
+    </figure>
+    <p class="caption">
+      <strong>Overview of Reward-rate Policy Gradient (RPG) in machine learning engineering, where our goal is to optimize for reward per unit of time in agentic RL contexts.</strong>
+      Our agent under policy $\pi_{\theta}$ is asked to self-improve upon its previous machine learning engineering scripts from buffer $\gB$,
+      and each action $a$ is a proposed script that executes in variable time $\delta$ and admits a performance score $r$ such as AUC.
+      $\hat\rho$ is estimated from past samples in buffer $\gB$ and captures the cost per unit of time.
+      Relative reward $\tilde r$ is then used in Proximal Policy Optimization (PPO) to perform RL training.
+      Maximizing the relative reward optimizes for reward rate, giving higher reward per unit of time and more efficient RL agents.
+    </p>
+  </div>
+</section>
+
+<!-- Abstract -->
+<section class="section is-shaded">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Abstract</h2>
+    <div class="content has-text-justified">
+      <p>
+        Traditional reinforcement learning (RL) techniques focus on maximizing expected cumulative reward, where each action assumes to take a constant unit of time.
+        However, this assumption does not hold for agentic RL tasks such as machine learning engineering (MLE) agents, where actions involve data loading, feature engineering, and model training that take variable durations.
+        Efficiency matters in modern agentic RL where actions are costly.
+        To address this limitation, we adapt from continuous-time RL and Semi-Markov Decision Process (SMDP) formulation and propose Reward-rate Policy Gradient (RPG), where we focus on optimizing the <em>reward rate</em> &mdash; the long-term reward per unit of time.
+        RPG estimates the reward rate from off-policy samples, then charges each action for the time it consumes at that rate.
+        We first conduct theoretical analysis in the bandit setting to establish that RPG approximates the optimal reward rate and empirically demonstrate it outperforms baselines while avoiding enumeration over the policy space, a known issue for an existing method.
+        We then further apply RPG on a small language model (Qwen3.5-4B) with self-improvement loops and empirically show it obtains higher rewards within a fixed time budget than vanilla RL on MLE-Bench and NanoGPT, with a 19.2% and 85.7% margin, respectively.
+        Our method provides a practical solution for optimizing performance under wait time considerations in modern agentic RL tasks, where actions interact with external environments and cost time.
+      </p>
+    </div>
+
+    <div class="columns is-mobile is-multiline mt-4">
+      <div class="column is-4-tablet is-12-mobile"><div class="stat"><div class="value">19.2%</div><div class="desc">average improvement over vanilla RL on MLE-Bench</div></div></div>
+      <div class="column is-4-tablet is-12-mobile"><div class="stat"><div class="value">20 / 22</div><div class="desc">MLE-Bench tasks where RPG improves over vanilla RL</div></div></div>
+      <div class="column is-4-tablet is-12-mobile"><div class="stat"><div class="value">85.7%</div><div class="desc">margin over vanilla RL on NanoGPT at the final budget</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Motivation -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Why reward rate?</h2>
+    <div class="content has-text-justified">
+      <p>
+        RL has been used extensively to train language models and agents, where the standard approach is to maximize expected cumulative reward.
+        In machine learning engineering, each action takes variable time and resources, so it is important to consider samples' costs for practicality &mdash;
+        we want agents that are not only good, but also <em>efficient</em>.
+      </p>
+      <p>
+        One natural formulation is the long-run reward per unit of time studied in the Semi-Markov Decision Process (SMDP) (Sutton et al., 1999).
+        Intuitively, the method uses RL to maximize relative rewards, calculated from total rewards minus the amount that it would have earned if time were spent optimally.
+        However, performing this computation requires knowing the optimal reward rate <em>a priori</em>, which is often not the case in practice, giving a chicken-or-egg dilemma.
+        Directly optimizing the reward rate with the SMDP policy gradient objective (Sutton et al., 1999) requires estimating the rate of the current policy from on-policy rollouts, an operation that is still expensive when actions are costly.
+        The continuous-time bandit approach (Gy&ouml;rgy et al., 2007) estimates the optimal reward rate from historical samples, but it requires an exhaustive search over the policy space, infeasible in modern agentic RL settings where action space is large.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Method -->
+<section class="section is-shaded">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Reward-rate Policy Gradient</h2>
+    <div class="content has-text-justified">
+      <p>
+        In the SMDP setting, taking action $a_t$ in state $s_t$ gives reward $r_{t+1}$ and time $\delta_{t+1}$.
+        Our objective is to maximize the long-term reward per unit of time:
+      </p>
+      $$\rho(\pi) = \lim_{t \to \infty} \frac{\E_\pi \big[\sum_{j=1}^{t} r_j\big]}{\E_\pi \big[\sum_{j=1}^{t} \delta_{j}\big]}, \qquad \pi^* = \arg\max_{\pi} \rho(\pi).$$
+      <div class="key-idea">
+        <div class="label">Key idea</div>
+        The implementation is a straightforward plug-in using the <em>relative reward</em> into existing RL algorithms:
+        $$\tilde{r}_t := r_t - \hat{\rho}_t\,\delta_t .$$
+        Intuitively, the relative reward $\tilde{r}_t$ is the gain obtained for the selected action when $\delta_t$ units of time are used at a cost of $\rho(\pi)$,
+        so actions are ranked by their relative performance per unit of time.
+      </div>
+      <p>
+        RPG uses off-policy historical samples to estimate the reward rate under the greedy policy and maximizes for relative reward.
+        It does not need time-costly on-policy rollouts for each gradient step, and does not require searching over the policy space.
+        Additionally, RPG is simple to adopt in the current RL pipeline, since it only requires a reward-rate estimator and uses the relative reward as the learning signal.
+        The estimator $f_\rho$ can be anything that estimates the greedy reward rate, such as Bayesian inference, Robbins-Monro iteration, or neural networks.
+      </p>
+    </div>
+
+    <div class="algorithm content">
+      <div class="algo-title">Algorithm 1: Reward-rate Policy Gradient (RPG)</div>
+      <p class="mb-2"><strong>Require:</strong> policy $\pi_\theta$, greedy reward rate estimator $f_{\rho}$, buffer $\gB$, $\hat\rho_1 \leftarrow 0$.</p>
+      <p class="mb-1">For $t = 0$ to $T-1$:</p>
+      <ol>
+        <li>Sample actions $a_{t} \sim \pi_{\theta_t}(\cdot \mid s_{t})$, execute $a_t$ and observe reward $r_{t+1}$ and time $\delta_{t+1}$.</li>
+        <li>Store $a_t$, $\delta_{t+1}$ and $r_{t+1}$ in buffer $\gB$.</li>
+        <li>Fit $f_{\rho}$ on $\gB$, then get $\hat\rho_{t+1} = f_{\rho}(\gB)$.</li>
+        <li>Calculate relative reward $\tilde{r}_{t+1} = r_{t+1} - \hat{\rho}_{t+1}\,\delta_{t+1}$ and advantage $\hat{A}_{t+1}$.</li>
+        <li>$\theta_{t+1} \leftarrow \texttt{PPO}(\theta_t, \hat A_{t+1})$.</li>
+      </ol>
+      <p class="algo-note">$f_{\rho}$ is a Normal-Inverse-Wishart (NIW) posterior, but it can also be Robbins-Monro or neural networks.</p>
+    </div>
+
+    <h3 class="title is-4">Theoretical analysis in the bandit setting</h3>
+    <div class="columns">
+      <div class="column">
+        <div class="theory-card content">
+          <h5>Approximate Dinkelbach iteration</h5>
+          <p>
+            If $\rho_{k+1}$ is within an asymmetric $\gamma$-tolerance band around the greedy reward rate $\rho(u_{\rho_k})$ at every step,
+            the sequence is contained within an interval around the optimal reward rate
+            $\rho_k \in [(1 - R\gamma/ (1+\gamma)) \rho^*, (1+\gamma)\rho^*]$ as $k \to \infty$ &mdash; we are approximately doing a Dinkelbach iteration (Dinkelbach, 1967).
+            When the estimation is exact, $\gamma = 0$, the sequence reaches $\rho^*$ in finite steps.
+          </p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="theory-card content">
+          <h5>Natural policy gradient and reward-rate RL</h5>
+          <p>
+            Natural policy gradient (NPG) updates are equivalent to a Boltzmann policy on the relative value $q_{\bar\rho_{k}}(x,a)$ with a running average rate $\bar\rho_{k}$.
+            With exact greedy reward rate estimation, the error between $\bar\rho_k$ and $\rho^*$ shrinks in $O(k^{-(1-\chi)})$,
+            and after finitely many steps the policy increases the optimal arm's probability towards $1$.
+            This motivates using PPO in practice, a first-order approximation of NPG (Schulman et al., 2017).
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bandit -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Bandit validation</h2>
+    <figure class="paper-figure">
+      <img src="static/images/bandit_legend.png" alt="Legend: NPG-NIW, SPG-NIW, C-UCB (tuned), C-UCB (theory)">
+      <div class="columns is-mobile is-multiline mt-2">
+        <div class="column is-6-tablet is-12-mobile has-text-centered">
+          <img src="static/images/bandit_ctx4.png" alt="Final-step regret versus number of arms K with 4 contexts, environments E1 to E4">
+          <p class="caption has-text-centered">(a) 4 contexts, $|\mathcal{X}| = 4$.</p>
+        </div>
+        <div class="column is-6-tablet is-12-mobile has-text-centered">
+          <img src="static/images/bandit_ctx64.png" alt="Final-step regret versus number of arms K with 64 contexts, environments E1 to E4">
+          <p class="caption has-text-centered">(b) 64 contexts, $|\mathcal{X}| = 64$.</p>
+        </div>
+      </div>
+    </figure>
+    <p class="caption">
+      <strong>Our proposed approach NPG-NIW obtains similar or lower regret than C-UCB while avoiding exhaustive search over policies.</strong>
+      Standard policy gradient (SPG-NIW) also performs worse than NPG, verifying our theory that NPG's decoupling helps reward-rate RL.
+      y-axis is regret at the final step over 100 trials, x-axis is the number of arms $K$, and 4 environments are considered:
+      (E1) independent reward and time, (E2) time and reward have 0.8 correlation, (E3) time and reward have $-0.8$ correlation,
+      and (E4) reward and time are lognormal with $+0.5$ correlation.
+      C-UCB is the continuous-time upper confidence bound approach by Gy&ouml;rgy et al. (2007);
+      with 64 contexts it cannot afford to enumerate over all policies, so 2048 policies are drawn uniformly at random from past visited ones to predict $\hat\rho$.
+    </p>
+  </div>
+</section>
+
+<!-- MLE-Bench -->
+<section class="section is-shaded">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Results on MLE-Bench</h2>
+    <div class="content has-text-justified">
+      <p>
+        We use Qwen3.5-4B as our language model. An action is a generated script, executed in a sandbox environment to produce time $\delta$ and reward $r$.
+        The agent self-improves: the next state concatenates the base prompt with a previous script selected by top-$k$ relative reward
+        $\tilde r = r' - \hat\rho\,\delta'$ from the buffer, and asks the agent to improve upon its performance score and time.
+        The reward-rate estimator is a Normal-Inverse-Wishart posterior fitted from historical samples in the buffer.
+        Our baseline is vanilla RL, where rewards are performance scores only.
+        We calculate the mean reward across self-improvement chains at every cumulative time budget.
+      </p>
+    </div>
+
+    <div class="table-container">
+      <table class="table results is-hoverable is-narrow">
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th class="num rpg">RPG</th>
+            <th class="num">Vanilla</th>
+            <th class="num">% improv.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>ranzcr-clip <span class="dir">(&uarr;)</span></td><td class="num rpg"><strong>0.089 ± 0.046</strong></td><td class="num">0.014 ± 0.014</td><td class="num pos">+530.5</td></tr>
+          <tr><td>aptos2019 <span class="dir">(&uarr;)</span></td><td class="num rpg"><strong>0.564 ± 0.046</strong></td><td class="num">0.315 ± 0.120</td><td class="num pos">+78.9</td></tr>
+          <tr><td>mlsp-birds <span class="dir">(&uarr;)</span></td><td class="num rpg"><strong>0.333 ± 0.154</strong></td><td class="num">0.226 ± 0.120</td><td class="num pos">+46.9</td></tr>
+          <tr><td>siim-isic <span class="dir">(&uarr;)</span></td><td class="num rpg"><strong>0.660 ± 0.021</strong></td><td class="num">0.456 ± 0.112</td><td class="num pos">+44.8</td></tr>
+          <tr><td>textnorm-en <span class="dir">(&uarr;)</span></td><td class="num rpg"><strong>0.880 ± 0.048</strong></td><td class="num">0.714 ± 0.068</td><td class="num pos">+23.2</td></tr>
+          <tr><td>textnorm-ru <span class="dir">(&uarr;)</span></td><td class="num rpg"><strong>0.889 ± 0.021</strong></td><td class="num">0.730 ± 0.022</td><td class="num pos">+21.7</td></tr>
+          <tr><td>tabular-2021 <span class="dir">(&uarr;)</span></td><td class="num rpg"><strong>0.907 ± 0.010</strong></td><td class="num">0.778 ± 0.046</td><td class="num pos">+16.5</td></tr>
+          <tr><td>insults <span class="dir">(&uarr;)</span></td><td class="num rpg"><strong>0.834 ± 0.025</strong></td><td class="num">0.761 ± 0.024</td><td class="num pos">+9.6</td></tr>
+          <tr><td>jigsaw-toxic <span class="dir">(&uarr;)</span></td><td class="num rpg"><strong>0.948 ± 0.009</strong></td><td class="num">0.868 ± 0.028</td><td class="num pos">+9.2</td></tr>
+          <tr><td>histopathologic <span class="dir">(&uarr;)</span></td><td class="num rpg"><strong>0.594 ± 0.107</strong></td><td class="num">0.554 ± 0.021</td><td class="num pos">+7.2</td></tr>
+          <tr><td>aerial-cactus <span class="dir">(&uarr;)</span></td><td class="num rpg"><strong>0.954 ± 0.018</strong></td><td class="num">0.893 ± 0.010</td><td class="num pos">+6.8</td></tr>
+          <tr><td>plant-pathology <span class="dir">(&uarr;)</span></td><td class="num rpg"><strong>0.526 ± 0.048</strong></td><td class="num">0.498 ± 0.047</td><td class="num pos">+5.6</td></tr>
+          <tr><td>pizza <span class="dir">(&uarr;)</span></td><td class="num rpg"><strong>0.760 ± 0.008</strong></td><td class="num">0.728 ± 0.019</td><td class="num pos">+4.4</td></tr>
+          <tr><td>tabular-2022 <span class="dir">(&uarr;)</span></td><td class="num rpg"><strong>0.840 ± 0.013</strong></td><td class="num">0.806 ± 0.028</td><td class="num pos">+4.2</td></tr>
+          <tr><td>whale <span class="dir">(&uarr;)</span></td><td class="num rpg">0.493 ± 0.005</td><td class="num"><strong>0.749 ± 0.091</strong></td><td class="num neg">&minus;34.2</td></tr>
+          <tr><td>leaf-classif <span class="dir">(&darr;)</span></td><td class="num rpg"><strong>0.259 ± 0.063</strong></td><td class="num">0.564 ± 0.059</td><td class="num pos">+54.0</td></tr>
+          <tr><td>spooky-author <span class="dir">(&darr;)</span></td><td class="num rpg"><strong>0.440 ± 0.015</strong></td><td class="num">0.690 ± 0.003</td><td class="num pos">+36.2</td></tr>
+          <tr><td>nyc-taxi <span class="dir">(&darr;)</span></td><td class="num rpg"><strong>4.309 ± 0.029</strong></td><td class="num">5.349 ± 0.387</td><td class="num pos">+19.4</td></tr>
+          <tr><td>dog-breed <span class="dir">(&darr;)</span></td><td class="num rpg"><strong>4.786 ± 0.001</strong></td><td class="num">4.924 ± 0.139</td><td class="num pos">+2.8</td></tr>
+          <tr><td>dogs-vs-cats <span class="dir">(&darr;)</span></td><td class="num rpg"><strong>0.688 ± 0.005</strong></td><td class="num">0.703 ± 0.001</td><td class="num pos">+2.1</td></tr>
+          <tr><td>nomad2018 <span class="dir">(&darr;)</span></td><td class="num rpg"><strong>0.064 ± 0.002</strong></td><td class="num">0.064 ± 0.002</td><td class="num pos">+0.3</td></tr>
+          <tr><td>denoising-docs <span class="dir">(&darr;)</span></td><td class="num rpg">0.094 ± 0.002</td><td class="num"><strong>0.085 ± 0.013</strong></td><td class="num neg">&minus;10.1</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="caption">
+      <strong>RPG vs. vanilla RL on 22 MLE-Bench Lite tasks</strong>, evaluated on mean performance score across self-improving chains within a fixed-time budget.
+      (&uarr;) and (&darr;) means higher and lower is better, respectively.
+      % improv. is the relative improvement of RPG over vanilla. On average, RPG performs 19.2% better than vanilla, after dropping the highest and lowest numbers.
+    </p>
+
+    <figure class="paper-figure">
+      <img src="static/images/mlebench_programs.png" alt="Mean log loss over cumulative time budget on spooky-author, with an RPG script (5.0s, log loss 0.469) and a vanilla script (13s, log loss 0.727)">
+    </figure>
+    <p class="caption">
+      <strong>Example of generated scripts by RPG and vanilla RL.</strong>
+      RPG proposes scripts that use time more efficiently by training on one type of feature with logistic regression,
+      whereas vanilla RL chooses to train on two types of features with 1200 gradient-boosted trees.
+      On the spooky-author task, vanilla trains a gradient-boosted tree in 13 seconds with log loss 0.727,
+      whereas RPG uses count features along with logistic regression to obtain 0.469 log loss in 5 seconds.
+    </p>
+  </div>
+</section>
+
+<!-- NanoGPT -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Results on NanoGPT</h2>
+    <div class="content has-text-justified">
+      <p>
+        We also apply RPG to the NanoGPT speedrun challenge (Karpathy, 2022; Jordan et al., 2024), where the task is to train a tiny language model
+        down to a validation cross-entropy loss of $3.28$ on FineWeb with eight GPUs as fast as possible.
+        As a baseline, we implement vanilla RL using time to reach the $3.28$ target loss as reward, and compare with RPG using relative reward as the learning signal.
+      </p>
+    </div>
+    <figure class="paper-figure">
+      <img src="static/images/nanogpt_budget.png" alt="Best crossing validation loss over cumulative time budget on NanoGPT, with an example self-improvement edit that adds a triton kernel, a compiled iteration and a learning-rate warmup">
+    </figure>
+    <p class="caption">
+      <strong>Budget curve and an example self-improvement step on NanoGPT.</strong>
+      (Left) At the final budget, RPG improves over vanilla by 85.7%.
+      (Right) Example of a self-improvement edit by RPG, which rewrites Newton&ndash;Schulz in the Muon optimizer as a triton kernel with a compiled iteration and adds a learning-rate warmup.
+      The new edit crosses the loss target in less time.
+    </p>
+  </div>
+</section>
+
+<!-- Conclusion -->
+<section class="section is-shaded">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Conclusion</h2>
+    <div class="content has-text-justified">
+      <p>
+        We proposed a practical reward-rate RL algorithm, namely RPG, for training efficient machine learning engineering agents using the SMDP formulation,
+        where each action takes variable time, and the objective is long-run reward per unit of time.
+        RPG uses greedy policy's reward rate estimates for the relative reward calculation and directly maximizes it through PPO.
+        It avoids enumeration over all policies and time-costly on-policy rollouts, two limitations for directly applying the SMDP methods in practice.
+        Through theoretical analysis, simulation experiments, and empirical experiments on MLE-Bench and NanoGPT,
+        we demonstrated that RPG produces an agent policy that learns to take actions efficiently and maximizes reward.
+      </p>
+      <p>
+        There are some limitations in this work. The scope of the empirical experiments is focused on machine learning engineering tasks,
+        but other agentic RL tasks where actions cost variable time exist, so it would be interesting to see how reward-rate RL does on these tasks.
+        Theoretically, our analysis focuses on the population-level setting in expectation. A finite-sample analysis could provide further insight.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- BibTeX -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3">BibTeX</h2>
+    <button class="button is-small is-light copy-button" type="button" id="copy-bibtex">
+      <span class="icon"><i class="far fa-copy"></i></span><span>Copy</span>
+    </button>
+    <pre class="bibtex" id="bibtex-text"><code>@misc{tian2026reward,
+  title  = {Reward-rate Policy Gradient for Efficient Machine Learning Engineering Agents},
+  author = {Tian, Muhang and Yang, Sherry},
+  year   = {2026},
+  note   = {Preprint}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container is-max-desktop has-text-centered">
+    <p>
+      <a href="https://muhang-tian.com/">muhang-tian.com</a>
+    </p>
+    <p>
+      This page uses the <a href="https://github.com/nerfies/nerfies.github.io" target="_blank" rel="noopener">Nerfies</a> project page template,
+      licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.
+    </p>
+  </div>
+</footer>
+
+<script>
+  // Wire the Preprint / Code buttons to PAPER_LINKS (top of this file).
+  document.querySelectorAll("[data-link]").forEach(function (btn) {
+    var url = PAPER_LINKS[btn.dataset.link];
+    if (url) {
+      btn.href = url;
+    } else {
+      btn.classList.add("is-pending");
+      btn.setAttribute("aria-disabled", "true");
+      btn.title = "Coming soon";
+      btn.removeAttribute("target");
+      btn.addEventListener("click", function (e) { e.preventDefault(); });
+    }
+  });
+
+  document.getElementById("copy-bibtex").addEventListener("click", function () {
+    var text = document.getElementById("bibtex-text").innerText;
+    var btn = this;
+    navigator.clipboard.writeText(text).then(function () {
+      btn.querySelector("span:last-child").textContent = "Copied";
+      setTimeout(function () { btn.querySelector("span:last-child").textContent = "Copy"; }, 1500);
+    });
+  });
+</script>
+</body>
+</html>
