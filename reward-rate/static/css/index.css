@@ -11,38 +11,106 @@
 }
 
 body {
-  font-family: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: var(--ink);
 }
 
 a { color: var(--rpg-blue); }
 a:hover { color: var(--rpg-orange); }
 
+/* Links to cited work: blue with a faint underline so they read as links. */
+a.ref-link {
+  color: var(--rpg-blue);
+  border-bottom: 1px solid rgba(0, 114, 178, 0.35);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+a.ref-link:hover {
+  color: #00507d;
+  border-bottom-color: #00507d;
+}
+
 /* ---- Hero ---- */
+.hero .hero-body { padding-top: 3.5rem; padding-bottom: 2rem; }
 .publication-title {
-  font-family: "Castoro", Georgia, serif;
+  font-family: "Source Serif 4", Georgia, serif;
+  font-weight: 600;
   line-height: 1.2;
 }
-.publication-authors { font-size: 1.2rem; }
-.publication-authors a { color: var(--rpg-blue) !important; }
-.publication-authors a:hover { text-decoration: underline; }
-.author-block { display: inline-block; margin: 0 0.4rem; }
+.publication-authors { font-size: 1.25rem; margin-top: 0.75rem; }
+.author-block { display: inline-block; margin: 0 0.6rem; }
+/* Names read as plain text; hovering reveals they are links. */
+a.author-link {
+  color: var(--ink);
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+a.author-link:hover,
+a.author-link:focus-visible {
+  color: var(--rpg-orange);
+  border-bottom-color: var(--rpg-orange);
+}
 .affiliation { color: var(--muted); font-size: 1.05rem; margin-top: 0.3rem; }
 
 .publication-links { margin-top: 1.25rem; }
 .link-block { display: inline-block; margin: 0.2rem; }
-.link-block .button { transition: transform 0.12s ease, background-color 0.12s ease; }
-.link-block .button:hover { transform: translateY(-1px); background-color: #3a3a3a; }
-.link-block .button.is-pending { opacity: 0.55; cursor: default; }
-.link-block .button.is-pending:hover { transform: none; background-color: #363636; }
+.link-block .button {
+  background-color: #2b2b2b;
+  padding-left: 1.2em;
+  padding-right: 1.3em;
+  transition: transform 0.12s ease, background-color 0.12s ease;
+}
+.link-block .button:hover { transform: translateY(-1px); background-color: #444; }
+.link-block .button.is-pending { cursor: default; }  /* full colour; clicks are blocked in JS and the tooltip says "Coming soon" */
+.link-block .button.is-pending:hover { transform: none; }
+
+/* Per-button colours: Paper in the paper's own blue, arXiv in arXiv's brand red,
+   Code in GitHub's near-black. Hover darkens each slightly. */
+.link-block .button[data-link="paper"]                 { background-color: #0066a0; }
+.link-block .button[data-link="paper"]:not(.is-pending):hover { background-color: #00527f; }
+.link-block .button[data-link="arxiv"]                 { background-color: #a71818; }
+.link-block .button[data-link="arxiv"]:not(.is-pending):hover { background-color: #871313; }
+.link-block .button[data-link="code"]                  { background-color: #20242a; }
+.link-block .button[data-link="code"]:not(.is-pending):hover  { background-color: #383f47; }
+
+/* ---- TL;DR ---- */
+.tldr-section { padding-top: 0; padding-bottom: 1.5rem; }
+.tldr {
+  background: var(--rpg-tint);
+  border-left: 4px solid var(--rpg-blue);
+  border-radius: 0 8px 8px 0;
+  padding: 1.1rem 1.4rem;
+}
+.tldr p { font-size: 1.25rem; line-height: 1.65; margin: 0.35rem 0 0; }
+.tldr-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--rpg-blue);
+}
 
 /* ---- Sections ---- */
 .section { padding: 2.5rem 1.5rem; }
 .section.is-shaded { background: #fafafa; }
 .title.is-3 {
-  font-family: "Castoro", Georgia, serif;
+  font-family: "Source Serif 4", Georgia, serif;
   font-weight: 400;
-  margin-bottom: 1.25rem !important;
+  margin-bottom: 1.5rem !important;
+}
+/* Accent rule under centred section titles, exactly as wide as the title text:
+   display: table shrinks the heading to its words and margin auto keeps it centred. */
+.title.is-3.has-text-centered {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+.title.is-3.has-text-centered::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin-top: 0.45rem;
+  background: var(--rpg-orange);
+  border-radius: 2px;
 }
 .title.is-4 { font-weight: 600; margin-top: 2rem; }
 .content p { line-height: 1.7; }
@@ -52,6 +120,15 @@ a:hover { color: var(--rpg-orange); }
   width: 100%;
   height: auto;
   display: block;
+}
+/* Figures and the results table sit on white cards so they look intentional
+   on the shaded sections, rather than as bare white rectangles. */
+.teaser, figure.paper-figure, .table-container {
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 figure.paper-figure { margin: 1.5rem 0 0.5rem; }
 .caption {
@@ -101,21 +178,8 @@ figure.paper-figure { margin: 1.5rem 0 0.5rem; }
 }
 .theory-card h5 { font-weight: 700; margin-bottom: 0.5rem; }
 
-/* Headline numbers */
-.stat {
-  text-align: center;
-  padding: 1rem 0.5rem;
-}
-.stat .value {
-  font-family: "Castoro", Georgia, serif;
-  font-size: 2.6rem;
-  line-height: 1;
-  color: var(--rpg-blue);
-}
-.stat .desc { color: var(--muted); font-size: 0.95rem; margin-top: 0.4rem; }
-
 /* Results table */
-.table-container { margin-top: 1rem; }
+.table-container { margin-top: 1rem; padding: 0.5rem 0.75rem; }
 table.results { font-size: 0.9rem; width: 100%; }
 table.results th { white-space: nowrap; }
 table.results td, table.results th { vertical-align: middle; padding: 0.4em 0.6em; }
