@@ -20,8 +20,8 @@ publications: true
 social: true # includes social icons at the bottom of the page
 ---
 
-I am a second-year computer science PhD student at [NYU Courant](https://cs.nyu.edu/home/index.html) and [CILVR group](https://wp.nyu.edu/cilvr/), advised by [Sherry Yang](https://sherryy.github.io/). I am currently interested in machine learning engineering agents and recursive self-improvement loops. I was also very fortunate to work with [Sumit Chopra](https://www.spchopra.net/) and [Rajesh Ranganath](https://cims.nyu.edu/~rajeshr/).
+I am a second-year computer science PhD student at [NYU Courant](https://cs.nyu.edu/home/index.html) and [CILVR group](https://wp.nyu.edu/cilvr/), advised by [Sherry Yang](https://sherryy.github.io/). I am currently interested in machine learning engineering agents and world models. I was also very fortunate to work with [Sumit Chopra](https://www.spchopra.net/) and [Rajesh Ranganath](https://cims.nyu.edu/~rajeshr/).
 
-I obtained my BS in Computer Science with a double minor in Mathematics and Economics at [Duke University](https://duke.edu/), where I received [Graduation with Highest Distinction](https://cs.duke.edu/undergrad/awards) and [Alex Vasilos Memorial Award](https://today.duke.edu/2024/05/honors-and-laurels-earned-class-2024). I was very fortunate to work with [Cynthia Rudin](https://users.cs.duke.edu/~cynthia/), [Brandon Fain](https://sites.duke.edu/btfain/), and [Anru Zhang](https://anruzhang.github.io/).
+I obtained my BS in Computer Science with a double minor in Mathematics and Economics at [Duke University](https://duke.edu/), where I received [Graduation with Highest Distinction](https://cs.duke.edu/undergrad/awards) and [Alex Vasilos Memorial Award](https://today.duke.edu/2024/05/honors-and-laurels-earned-class-2024). At Duke, I was very fortunate to work with [Cynthia Rudin](https://users.cs.duke.edu/~cynthia/), [Brandon Fain](https://sites.duke.edu/btfain/), and [Anru Zhang](https://anruzhang.github.io/).
 
-My hobbies include playing Bayan accordion, running, and road trip.
+My hobbies include playing [Bayan accordion](https://en.wikipedia.org/wiki/Bayan_(accordion)), running, and road trip.

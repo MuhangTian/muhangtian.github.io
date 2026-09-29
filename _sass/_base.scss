@@ -26,6 +26,31 @@ strong {
   max-width: 30%;
 }
 
+// Name beside the profile photo: slightly larger than the default h1 (2.5rem).
+// The tighter line-height keeps the text column no taller than the photo, so
+// the social icons below can still line up with the photo's bottom edge.
+.custom-col + .col-sm-8 .post-title {
+  font-size: 2.875rem;
+  line-height: 1.1;
+}
+
+// Beside the profile photo, pin the social icons to the bottom of the text
+// column (which stretches to the photo's height), so their bottom edge lines
+// up with the photo's bottom edge at any width. Only when the columns sit side
+// by side; on phones they stack.
+@media (min-width: 576px) {
+  .custom-col + .col-sm-8 {
+    display: flex;
+    flex-direction: column;
+
+    .social {
+      margin-top: auto;
+      margin-bottom: 1px; // lines the glyphs' bottom edge up with the photo's
+      align-self: flex-start; // keep the icon row its own width, left-aligned as before
+    }
+  }
+}
+
 body {
   // "Garamond" alone resolved to the browser default serif on any machine
   // without it installed (i.e. most macOS). EB Garamond is loaded via
