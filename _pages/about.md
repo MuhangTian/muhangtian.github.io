@@ -6,7 +6,7 @@ subtitle:
 
 profile:
   align: left
-  image: my_photo.jpeg
+  image: my_photo.jpg
   image_circular: false # crops the image to make it circular
   affiliation: 
     Computer Science PhD Student <br>
