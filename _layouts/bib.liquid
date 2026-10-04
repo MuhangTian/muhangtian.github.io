@@ -203,7 +203,7 @@
         {% endif %}
       {% endif %}
       {% if entry.pdf %}
-        {% if entry.pdf contains '://' or entry.pdf == '#' %}
+        {% if entry.pdf contains '://' %}
           <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0" role="button" style="padding: 0.09rem 0.5rem; font-size: .7rem;">PDF</a>
         {% else %}
           <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button" style="padding: 0.09rem 0.5rem; font-size: .7rem;">PDF</a>
