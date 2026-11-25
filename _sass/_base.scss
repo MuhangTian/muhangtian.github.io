@@ -91,6 +91,17 @@ table.table a {
   }
 }
 
+.post article .clearfix p a,
+.post article .news td a {
+  font-weight: 500;
+  text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    color: color-mix(in srgb, var(--global-theme-color) 70%, var(--global-text-color));
+  }
+}
+
 .table-dark {
   background-color: transparent;
   &.table-bordered {
@@ -699,6 +710,13 @@ footer.sticky-bottom {
 
 // Publications
 
+.author-note {
+  top: -0.12em;
+  margin-inline-start: 0.06em;
+  font-size: 0.85em;
+  vertical-align: baseline;
+}
+
 .publications {
   margin-top: 2rem;
 
@@ -795,6 +813,7 @@ footer.sticky-bottom {
 
       .links {
         a.btn {
+          font-weight: 500;
           color: var(--global-theme-color);
           border: 1px solid var(--global-theme-color);
           border-radius: 8px;

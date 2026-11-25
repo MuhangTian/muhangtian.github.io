@@ -19,7 +19,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 publications: true
 social: true # includes social icons at the bottom of the page
 ---
-I am a second-year computer science PhD student at [NYU Courant](https://cs.nyu.edu/home/index.html) and [CILVR group](https://wp.nyu.edu/cilvr/), advised by [Sherry Yang](https://sherryy.github.io/). I am currently interested in designing cost-aware agents for tasks where actions spend resources and time. I worked at [ByteDance AML Algorithms](https://www.bytedance.com/) as a research intern.
+I am a second-year computer science PhD student advised by [Sherry Yang](https://sherryy.github.io/) at [NYU Courant](https://cs.nyu.edu/home/index.html) and a member of the [CILVR group](https://wp.nyu.edu/cilvr/). I am currently interested in designing cost-aware agents for tasks where actions spend resources and time. I worked at [ByteDance](https://www.bytedance.com/) as a research intern.
 
 Previously, I obtained my BS in Computer Science with a double minor in Mathematics and Economics at [Duke University](https://duke.edu/), where I received [Graduation with Highest Distinction](https://cs.duke.edu/undergrad/awards) and [Alex Vasilos Memorial Award](https://today.duke.edu/2024/05/honors-and-laurels-earned-class-2024). At Duke, I was very fortunate to work with [Cynthia Rudin](https://users.cs.duke.edu/~cynthia/), [Brandon Fain](https://sites.duke.edu/btfain/), and [Anru Zhang](https://anruzhang.github.io/).
 

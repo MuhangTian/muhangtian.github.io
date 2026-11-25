@@ -45,10 +45,10 @@ layout: default
 
     <div class="clearfix">{{ content }}</div>
 
-    <!-- News -->
+    <!-- Updates -->
     {% if page.news and site.announcements.enabled %}
-      <h3>
-        <span style="color: inherit">News</span>
+      <h3 class="font-weight-bold">
+        <span style="color: inherit">Updates</span>
       </h3>
       {% include news.liquid limit=true %}
     {% endif %}
@@ -64,7 +64,7 @@ layout: default
     <!-- Selected papers (Publications) -->
     <div style="margin-bottom: -15px">
       {% if page.selected_papers %}
-        <h3>
+        <h3 class="font-weight-bold">
           <span style="color: inherit">Publications</span>
         </h3>
         &#x2A denotes equal contribution

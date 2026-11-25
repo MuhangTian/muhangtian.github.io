@@ -4,21 +4,19 @@
 
 @use "sass:color";
 
-// Site-wide accent (links, nav hover, tag pills, button fills).
-// Warm brick rather than a pure crimson: against the sage background a
-// fully saturated red reads as festive, and this also has to carry white
-// text as a solid fill.
-$global-word-color: #a63b2e;
+// Pine links and oxblood headings on warm white.
+$global-word-color: #176644;
 $dark-mode-color: #e98a76;
-$bg-color: #e6edd9;
-$text-color-sage: #1a2620;
-$text-color-sage-light: #5f6b62;
+$bg-color: #faf9f5;
+$text-color-ink: #272c29;
+$text-color-ink-light: #526058;
 
 :root {
+  --profile-heading-color: #792f38;
   --global-bg-color: #{$bg-color};
-  --global-code-bg-color: rgba(26, 38, 32, 0.06);
-  --global-text-color: #{$text-color-sage};
-  --global-text-color-light: #{$text-color-sage-light};
+  --global-code-bg-color: rgba(48, 34, 36, 0.06);
+  --global-text-color: #{$text-color-ink};
+  --global-text-color-light: #{$text-color-ink-light};
   --global-theme-color: #{$global-word-color};
   --global-hover-color: #{$global-word-color};
   --global-hover-text-color: #{$white-color};
@@ -26,9 +24,8 @@ $text-color-sage-light: #5f6b62;
   --global-footer-text-color: #{$grey-color-light};
   --global-footer-link-color: #{$white-color};
   --global-distill-app-color: #{$grey-color};
-  --global-divider-color: rgba(26, 38, 32, 0.13);
+  --global-divider-color: #8b938c;
   --global-card-bg-color: #{$white-color};
-  // Unified with the accent: two unrelated reds on one page read as a mistake.
   --global-highlight-color: #{$global-word-color};
   --global-back-to-top-bg-color: rgba(
     #{color.channel($black-color, "red", $space: rgb)},
@@ -38,7 +35,7 @@ $text-color-sage-light: #5f6b62;
   );
   --global-back-to-top-text-color: #{$white-color};
   --global-newsletter-bg-color: #{$white-color};
-  --global-newsletter-text-color: #{$text-color-sage};
+  --global-newsletter-text-color: #{$text-color-ink};
 
   --global-tip-block: #42b983;
   --global-tip-block-bg: #e2f5ec;
@@ -165,4 +162,16 @@ html[data-theme-setting="light"] {
     padding-top: 12px;
     display: block;
   }
+}
+
+.post-title,
+.post-title > span,
+.post > article > h3,
+.post > article > h3 > span,
+.post > article > div > h3 {
+  color: var(--profile-heading-color, var(--global-text-color));
+}
+
+html[data-theme="dark"] {
+  --profile-heading-color: var(--global-text-color);
 }
