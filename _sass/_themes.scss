@@ -4,15 +4,15 @@
 
 @use "sass:color";
 
-// Pine links and oxblood headings on warm white.
-$global-word-color: #176644;
+// Brick links and evergreen headings on cool off-white.
+$global-word-color: #893e2d;
 $dark-mode-color: #e98a76;
-$bg-color: #faf9f5;
-$text-color-ink: #272c29;
+$bg-color: #f6f7f3;
+$text-color-ink: #292d2b;
 $text-color-ink-light: #526058;
 
 :root {
-  --profile-heading-color: #792f38;
+  --profile-heading-color: #233e32;
   --global-bg-color: #{$bg-color};
   --global-code-bg-color: rgba(48, 34, 36, 0.06);
   --global-text-color: #{$text-color-ink};

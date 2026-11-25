@@ -4,7 +4,7 @@
 
 // Typography
 
-$custom-font-size: 1.1rem;
+$custom-font-size: 1.1875rem;
 
 p,
 h1,
@@ -30,8 +30,32 @@ strong {
 // The tighter line-height keeps the text column no taller than the photo, so
 // the social icons below can still line up with the photo's bottom edge.
 .custom-col + .col-sm-8 .post-title {
-  font-size: 2.875rem;
+  font-size: clamp(2rem, 6vw, 3rem);
   line-height: 1.1;
+}
+
+@media (min-width: 60rem) {
+  .container {
+    width: 92%;
+    max-width: 60rem;
+  }
+
+  .custom-col {
+    flex: 0 0 15.5rem;
+    max-width: 15.5rem;
+  }
+}
+
+.post article h3 {
+  font-family: "EB Garamond", Garamond, serif;
+  font-size: 1.875rem;
+  margin-top: 1.25em;
+  margin-bottom: 0.4em;
+}
+
+.news .table th,
+.news .table td {
+  font-size: $custom-font-size;
 }
 
 // Beside the profile photo, pin the social icons to the bottom of the text
@@ -59,6 +83,7 @@ body {
   // EB Garamond ships no 300; 400 is its regular.
   font-weight: 400;
   font-size: $custom-font-size;
+  line-height: 1.55;
 }
 
 hr {
